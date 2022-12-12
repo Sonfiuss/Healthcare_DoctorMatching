@@ -8,7 +8,7 @@ from django.contrib.auth.models import User , auth
 from main_app.models import patient , doctor
 from datetime import datetime
 
-# Create your views here.
+# Create your views here. 
 
 
    
