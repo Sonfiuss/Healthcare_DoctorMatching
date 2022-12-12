@@ -423,6 +423,46 @@
     
     });
 
+    function getMessages(){
+        if (!scrolling) {
+          $.ajax({
+            url: "{% url 'chat_messages' %}",
+            type: "GET",
+           
+            success: function(messages) {
+              $('#msg-list').html(messages);
+              var chatlist = document.getElementById('msg-list-div');
+              chatlist.scrollTop = chatlist.scrollHeight;
+            }
+          });
+        }
+        scrolling = false;
+      }
+      
+      var scrolling = false;
+      
+      $(function(){
+          $('#msg-list-div').on('scroll', function(){
+              scrolling = true;
+          });
+          refreshTimer = setInterval(getMessages, 2000);
+      });
+      
+      $(document).ready(function() {
+      
+        getMessages();
+        
+           $('#send').attr('disabled','disabled');
+           $('#chat-msg').keyup(function() {
+              if($(this).val() != '') {
+                  $('#send').removeAttr('disabled');
+              }
+              else {
+                  $('#send').attr('disabled','disabled');
+              }
+           });
+       });
+      
 
 </script>
 
