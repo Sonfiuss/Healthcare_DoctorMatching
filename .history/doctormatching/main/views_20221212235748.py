@@ -32,6 +32,7 @@ def patient_ui(request):
         patientusername = request.session['patientusername']
         puser = User.objects.get(username=patientusername)
         return render(request,'patient/patient_ui/profile.html' , {"puser":puser})
+
       else :
         return redirect('home')
 
