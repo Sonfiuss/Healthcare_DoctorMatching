@@ -99,3 +99,58 @@ def signup_patient(request):
     
     else :
       return render(request,'patient/signup_Form/signup.html')
+
+
+def sign_in_patient(request):
+  
+
+    if request.method == 'POST':
+
+          username =  request.POST.get('username')
+          password =  request.POST.get('password')
+ 
+          user = auth.authenticate(username=username,password=password)
+
+          if user is not None :
+             
+              try:
+                 if ( user.patient.is_patient == True ) :
+                     auth.login(request,user)
+
+                     request.session['patientusername'] = user.username
+
+                     return redirect('patient_ui')
+               
+              except :
+                  messages.info(request,'invalid credentials')
+                  return redirect('sign_in_patient')
+
+
+          else :
+             messages.info(request,'invalid credentials')
+             return redirect('sign_in_patient')
+
+
+    else :
+      return render(request,'patient/signin_page/index.html')
+
+
+def savepdata(request,patientusername):
+
+  if request.method == 'POST':
+    name =  request.POST['name']
+    dob =  request.POST['dob']
+    gender =  request.POST['gender']
+    address =  request.POST['address']
+    mobile_no = request.POST['mobile_no']
+    print(dob)
+    dobdate = datetime.strptime(dob,'%Y-%m-%d')
+
+    puser = User.objects.get(username=patientusername)
+
+    patient.objects.filter(pk=puser.patient).update(name=name,dob=dobdate,gender=gender,address=address,mobile_no=mobile_no)
+
+    return redirect('pviewprofile',patientusername)
+
+
+
