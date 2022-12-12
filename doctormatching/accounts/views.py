@@ -8,7 +8,7 @@ from django.contrib.auth.models import User , auth
 from main.models import patient , doctor
 from datetime import datetime
 
-# Create your views here. 
+# Create your views here.
 
 
    
@@ -18,6 +18,9 @@ def logout(request):
     request.session.pop('doctorid', None)
     request.session.pop('adminid', None)
     return render(request,'homepage/index.html')
+
+
+
 
 def sign_in_admin(request):
   
@@ -49,6 +52,8 @@ def sign_in_admin(request):
 
     else :
       return render(request,'admin/signin/signin.html')
+
+
 
 def signup_patient(request):
 
@@ -99,6 +104,7 @@ def signup_patient(request):
     
     else :
       return render(request,'patient/signup_Form/signup.html')
+
 
 
 def sign_in_patient(request):
@@ -152,6 +158,12 @@ def savepdata(request,patientusername):
 
     return redirect('pviewprofile',patientusername)
 
+
+
+
+
+#doctors account...........operations......
+    
 
 def signup_doctor(request):
 
@@ -280,3 +292,4 @@ def saveddata(request,doctorusername):
     doctor.objects.filter(pk=duser.doctor).update( name=name, dob=dob, gender=gender, address=address, mobile_no=mobile_no, registration_no=registration_no, year_of_registration=yor, qualification=qualification, State_Medical_Council=State_Medical_Council, specialization=specialization )
 
     return redirect('dviewprofile',doctorusername)
+
