@@ -212,7 +212,11 @@ def dconsultation_history(request):
       return render(request,'doctor/consultation_history/consultation_history.html',{"consultation":consultationnew})
 
 def  consult_a_doctor(request):
+
+
     if request.method == 'GET':
+
+        
         doctortype = request.session['doctortype']
         print(doctortype)
         dobj = doctor.objects.all()
