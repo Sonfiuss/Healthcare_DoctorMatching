@@ -31,14 +31,14 @@ def patient_ui(request):
       if request.user.is_authenticated:
         patientusername = request.session['patientusername']
         puser = User.objects.get(username=patientusername)
+
         return render(request,'patient/patient_ui/profile.html' , {"puser":puser})
+
       else :
         return redirect('home')
 
-    if request.method == 'POST':
-       return render(request,'patient/patient_ui/profile.html')
 
-def pviewprofile(request, patientusername):
-    if request.method == 'GET':
-          puser = User.objects.get(username=patientusername)
-          return render(request,'patient/view_profile/view_profile.html', {"puser":puser})
+
+    if request.method == 'POST':
+
+       return render(request,'patient/patient_ui/profile.html')
