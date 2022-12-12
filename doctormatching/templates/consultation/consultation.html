@@ -401,7 +401,27 @@
 
 
 <script>
-
+    $('#send').click( function(event){
+        event.preventDefault();
+    
+        $.ajax({
+            url :"{% url 'post' %}",
+            type : "POST",
+            data : { msgbox : $('#chat-msg').val(),
+            csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val()
+           },
+    
+            success : function(json){
+                console.log(json);
+                $('#chat-msg').val('');
+                $('#msg-list').append('<li class="text-right list-group-item">' + json.msg + '</li>');
+              
+            }
+        });
+    
+    
+    
+    });
 
 
 </script>
