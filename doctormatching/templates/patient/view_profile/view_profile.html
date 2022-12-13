@@ -31,7 +31,7 @@
 
     <div class="container mt-3 "  >
         
-          <div class="mx-auto text-center"><h2 >          Patient Profile - {{ puser.patient.name }} </h2> 
+          <div class="mx-auto text-center"><h2 >          Hồ sơ bệnh nhân - {{ puser.patient.name }} </h2> 
           </div>
 
 
@@ -42,7 +42,7 @@
 
        <div>
                   
-             <label class="required" for="id_username">username:</label>
+             <label class="required" for="id_username">Tên đăng nhập:</label>
                       
                    <input type="text" name="username" value={{puser.username}} class="vTextField" maxlength="50" required="" id="id_username">
                       
@@ -60,7 +60,7 @@
   <div>
       
       
-          <label class="required" for="id_name">Name:</label>
+          <label class="required" for="id_name">Họ Tên:</label>
           
               <input type="text" name="name" value={{puser.patient.name}} class="vTextField" maxlength="50" required="" id="id_name">
           
@@ -94,7 +94,7 @@
   <div>
       
       
-          <label class="required" for="id_dob">Dob:</label>
+          <label class="required" for="id_dob">Ngày sinh:</label>
           
               <input type="text" name="dob" value={{puser.patient.dob|date:'Y-m-d'}} class="vDateField" size="10" required="" id="id_dob">
               
@@ -107,7 +107,7 @@
   <div>
       
       
-          <label class="required" for="id_address">Address:</label>
+          <label class="required" for="id_address">Địa chỉ:</label>
           
               <input type="text" name="address" value={{puser.patient.address}} class="vTextField" maxlength="100" required="" id="id_address">
           
@@ -123,7 +123,7 @@
   <div>
       
       
-          <label class="required" for="id_mobile_no">Mobile no:</label>
+          <label class="required" for="id_mobile_no">Số điện thoại:</label>
           
               <input type="text" name="mobile_no" value={{puser.patient.mobile_no}} class="vTextField" maxlength="15" required="" id="id_mobile_no">
           
@@ -139,7 +139,7 @@
   <div>
       
       
-          <label class="required" for="id_gender">Gender:</label>
+          <label class="required" for="id_gender">Giới tính:</label>
           
               <input type="text" name="gender" value={{puser.patient.gender}} class="vTextField" maxlength="10" required="" id="id_gender">
           
@@ -156,9 +156,9 @@
             <div class="comtainer mt-3 mb-3 ml-4 mr-4">
               
                 <div class="btn-group">
-                  <button type="button" class="btn btn-secondary pr-4 pl-4 mr-5 ml-5 " data-toggle="collapse" data-target="#save">Edit</button>
+                  <button type="button" class="btn btn-secondary pr-4 pl-4 mr-5 ml-5 " data-toggle="collapse" data-target="#save">Thay đổi</button>
                   <div id="save" class="collapse ml-5 mr-5">
-                    <button type="button"  id="save" class="btn btn-success pr-4 pl-4 mr-5 ml-5 ">Save</button>
+                    <button type="button"  id="save" class="btn btn-success pr-4 pl-4 mr-5 ml-5 ">Lưu</button>
                     </div>
                  
                 </div>

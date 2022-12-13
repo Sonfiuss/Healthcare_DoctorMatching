@@ -192,7 +192,7 @@
 
 
 
-<br><center><h2> Consultation</h2>
+<br><center><h2> Tư vấn</h2>
 </center>
 <br>
 
@@ -206,13 +206,13 @@
 
 {% if user.patient.is_patient  %}
   <div class="container ml-5 mr-5">
-          <button type="button" class="btn btn-outline-secondary" data-toggle="collapse" data-target="#demo">Give Rating and Reviews to Doctor {{consultation.doctor.name}}</button>
+          <button type="button" class="btn btn-outline-secondary" data-toggle="collapse" data-target="#demo"Đưa ra đánh giá và đánh giá cho bác sĩ {{consultation.doctor.name}}</button>
                   <div id="demo" class="collapse">
                       
                     <form action="{% url 'rate_review' consultation.id %}" method="POST"> 
                        {% csrf_token %}
                         <div class="form-group mt-2">
-                                <label for="sel1">Rate (Out of 5):</label>
+                                <label for="sel1">Đánh giá(*/5):</label>
                                 <div class="row">
                                   <div class="col-sm-2">
                                       <select class="form-control" id="sel1" name="rating" > 
@@ -225,18 +225,16 @@
                                         </select>
                                   </div>
                                   <div class="col-sm-10">
-                                      <i class="material-icons" style="font-size:36px;color:yellow">star_half</i>
+                                      <i class="material-icons" style="font-size:36px;color:yellow">half_star</i>
                              
                                   </div>
                                 </div>
-                               
                               
-
                                 <br>
-                                <label for="comment">Reviews:</label>
+                                <label for="comment">Nhận xét:</label>
                                 <textarea class="form-control" rows="5" id="comment" name="review"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Xác nhận</button>
                     </form>
 
                   </div>
@@ -244,15 +242,15 @@
   </div>
     {% endif %}
   <div class="container mt-4 ml-5 mr-5">
-          <button type="button" class="btn btn-outline-danger mb-4" data-toggle="collapse" data-target="#demo2">Close Consultation</button>
-          <div id="demo2" class="collapse">Are you sure to close consultation ?
+          <button type="button" class="btn btn-outline-danger mb-4" data-toggle="collapse" data-target="#demo2">Hoàn tất tư vấn</button>
+          <div id="demo2" class="collapse">Bạn có chắc chắn để đóng tư vấn?
             <br>
 
             <form action="{% url 'close_consultation' consultation.id %}" method="POST"> 
               {% csrf_token %}
-            <button type="submit" class="btn btn-outline-success mr-2 mt-2" style="display:inline-block">Yes</button>
+            <button type="submit" class="btn btn-outline-success mr-2 mt-2" style="display:inline-block">Đồng ý</button>
          
-            <div class="btn btn-outline-danger mt-2"  data-toggle="collapse" >NO</div>
+            <div class="btn btn-outline-danger mt-2"  data-toggle="collapse" >Không</div>
           </form>
           </div>
       
@@ -268,8 +266,8 @@
     <div class="card mt-5 ml-5 mr-5 mb-5">
                    
         <div class="card-body">
-          <h4 class="card-title">Predicted disease : {{consultation.diseaseinfo.diseasename}}</h4>
-          <p class="card-text">list of symptoms - 
+          <h4 class="card-title">Dự đoán bệnh : {{consultation.diseaseinfo.diseasename}}</h4>
+          <p class="card-text">Triệu chứng - 
 
               <ul class="list-group" >
                 {% for i in consultation.diseaseinfo.symptomsname %}
@@ -279,11 +277,11 @@
         
 
           </p>
-          <p class="card-text">confident score - {{consultation.diseaseinfo.confidence}} %</p>
-          <p class="card-text">Patient age - {{consultation.patient.age}}</p>
+          <p class="card-text">Độ tin cậy - {{consultation.diseaseinfo.confidence}} %</p>
+          <p class="card-text">Tuổi bệnh nhân - {{consultation.patient.age}}</p>
 
-          <p class="card-text">Consultation date - {{consultation.consultation_date}}</p>
-          <p class="card-text" style="color: green;">Consultation status - {{consultation.status}}</p>
+          <p class="card-text">Ngày tư vấn - {{consultation.consultation_date}}</p>
+          <p class="card-text" style="color: green;">Tình trạng tư vấn - {{consultation.status}}</p>
         </div>
     </div>
 
@@ -299,10 +297,10 @@
                                     <img class="card-img-top " src="{% static 'homepage/patient.png' %}" alt="Card image" style="width:100%;">
                                 </div>
                                 <div class="card-body">
-                                  <h4 class="card-title">Patient name : {{consultation.patient.name}}</h4>
-                                  <p class="card-text">Patient ID - {{consultation.patient.user_id}}</p>
-                                  <p class="card-text">Patient email - {{consultation.patient.user.email}}</p>
-                                  <p class="card-text">patient phone no. - {{consultation.patient.mobile_no}}</p>
+                                  <h4 class="card-title">Tên bệnh nhân : {{consultation.patient.name}}</h4>
+                                  <p class="card-text">Id bệnh nhân - {{consultation.patient.user_id}}</p>
+                                  <p class="card-text">Email bệnh nhân - {{consultation.patient.user.email}}</p>
+                                  <p class="card-text">Số điện thoại - {{consultation.patient.mobile_no}}</p>
                                   <a href="{% url 'pviewprofile' consultation.patient.user.username %}" class="btn btn-primary">View Profile</a>
                                 </div>
                             </div>
@@ -313,11 +311,11 @@
                                             <img class="card-img-top" src="{% static 'homepage/doctor.png' %}" alt="Card image" style="width:100%;">
                                         </div>
                                         <div class="card-body" style="display: inline-block;">
-                                          <h4 class="card-title">Doctor name : {{consultation.doctor.name}}</h4>
-                                          <p class="card-text">Doctor ID - {{consultation.doctor.user_id}}</p>
-                                          <p class="card-text">Doctor email - {{consultation.doctor.user.email}}</p>
-                                          <p class="card-text">Doctor phone no. - {{consultation.doctor.mobile_no}}</p>
-                                          <p class="card-text">Doctor rating is - {{consultation.doctor.rating}}/5</p>
+                                          <h4 class="card-title">Tên bác sĩ: {{consultation.doctor.name}}</h4>
+                                          <p class="card-text">Id bác sĩ - {{consultation.doctor.user_id}}</p>
+                                          <p class="card-text">Email Bác sĩ- {{consultation.doctor.user.email}}</p>
+                                          <p class="card-text">Số Điện thoại bác sĩ. - {{consultation.doctor.mobile_no}}</p>
+                                          <p class="card-text">Đánh giá - {{consultation.doctor.rating}}/5</p>
                                           <a href="{% url 'dviewprofile' consultation.doctor.user.username %}" class="btn btn-primary">View Profile</a>
                                         </div>
                                 </div>
@@ -340,7 +338,7 @@
                         
              
                                 <div id="chat-body" class="panel panel-default">
-                                    <center> <div class="panel-heading">Chat Box 
+                                    <center> <div class="panel-heading">Trò chuyện
                                              </div>  </center>
 
                                     <div id="msg-list-div" class="panel-body">

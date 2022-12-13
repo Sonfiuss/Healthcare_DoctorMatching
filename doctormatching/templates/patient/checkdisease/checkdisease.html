@@ -193,9 +193,9 @@ $("#predict").click(function () {
     <br>
     <div class="text-center"> 
       <h3>
-          Identify possible conditions and treatment related to your symptoms.
+          Xác định  triệu chứng của bạn.
       </h3><br>
-            <button onclick="Functionshow()" class="btn btn-primary dropdown-toggle">Add symptoms</button>
+            <button onclick="Functionshow()" class="btn btn-primary dropdown-toggle">Thêm triệu chứng</button>
     </div>
   </div >
 
@@ -204,7 +204,7 @@ $("#predict").click(function () {
         <div id="searchbardiv" class="searchbardiv">    
       
             <input id="searchbar" class="searchbar" onkeyup="search_symptoms()" type="text"
-              name="search" placeholder=" Search symptoms.. "> <br>
+              name="search" placeholder=" Tìm kiếm triệu chứng.. "> <br>
         </div> 
 
         <div class="container" id="container-dropdown">
@@ -249,12 +249,12 @@ $("#predict").click(function () {
         <div class="card" id= "symptoms-box">
     
       {% csrf_token %}
-            <div class="card-header">Symptoms list -</div>
+            <div class="card-header">Danh sách triệu chứng -</div>
                     <div class="card-body" id="sympbox" >
                     </div>
                           <br>
                           <div class="card-footer">
-                                <button id="predict" class="btn btn-success">Predict</button>
+                                <button id="predict" class="btn btn-success">Dự đoán</button>
                           </div>
              </div>
         </div>
@@ -266,12 +266,12 @@ $("#predict").click(function () {
         <div class="text-center">
               <div class="card" id="predicted-data">
                     <div>
-                            <span class="diseasefield" >Patient name : {{ user.patient.name }}</span>
-                            <span class="diseasefield" >&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Age : {{ user.patient.age }} </span>
+                            <span class="diseasefield" >Tên bệnh nhân : {{ user.patient.name }}</span>
+                            <span class="diseasefield" >&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Tuổi : {{ user.patient.age }} </span>
                     </div>
-                    <span class="diseasefield" >predicted disease is : </span><span class="diseasefield" id="diseasefield" style="color: #092700; text-shadow: 2px 2px 4px rgb(36, 255, 45);"></span> <br>
+                    <span class="diseasefield" >Bệnh dự đoán được  : </span><span class="diseasefield" id="diseasefield" style="color: #092700; text-shadow: 2px 2px 4px rgb(36, 255, 45);"></span> <br>
                     <br>
-                    <span class="diseasefield">confidence score of :  </span>
+                    <span class="diseasefield">Đánh giá tin cậy:  </span>
                     <span>
                           <div class="progress" style="display: inline-block;width:140px">
                               <div id="percentage" class="progress-bar" style="width: 0%">0%
@@ -291,8 +291,8 @@ $("#predict").click(function () {
           <br><br>
 
         <div class="text-center">
-          <h4>This tool does not provide medical advice. It is intended for informational purposes only.
-          </h4><h4>It is not a substitute for professional medical advice, diagnosis or treatment. 
+          <h4>Chúng tôi không cung cấp lời khuyên cho triệu chứng của bạn
+          </h4><h4>Các chẩn đoán không thay thế cho lời khuyên hay tư vấn của bác sĩ chuyên nghiệp
           </h4>
         <br><br>
 
@@ -304,7 +304,7 @@ $("#predict").click(function () {
      
         <div >  <form action="consult_a_doctor" method="GET">
             {% csrf_token %} 
-            <button id="consultbtn" type="submit" class="btn btn-primary"> Consult a <span id="consultdoctor"  name="consultdoctor" > </span> doctor</button>
+            <button id="consultbtn" type="submit" class="btn btn-primary"> Tư vấn của bác sĩ <span id="consultdoctor"  name="consultdoctor" > </span></button>
           </form>
         </div>
       

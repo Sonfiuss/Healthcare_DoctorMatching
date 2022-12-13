@@ -31,7 +31,7 @@
 
 <div class="container mt-3 "  >
 
-  <div class="mx-auto text-center"><h2 >          Doctor Profile - {{ duser.doctor.name }} </h2> 
+  <div class="mx-auto text-center"><h2 >          Hồ sơ bác sĩ - {{ duser.doctor.name }} </h2> 
   </div>
 
 
@@ -43,7 +43,7 @@
         <div>
             
             
-                <label class="required" for="id_username">username:</label>
+                <label class="required" for="id_username">Tên đăng nhập:</label>
                 
                     <input type="text" name="username" value={{duser.username}} class="vTextField" maxlength="50" required="" id="id_username">
                 
@@ -60,7 +60,7 @@
     <div>
         
         
-            <label class="required" for="id_name">Name:</label>
+            <label class="required" for="id_name">Họ tên:</label>
             
                 <input type="text" name="name" value={{duser.doctor.name}} class="vTextField" maxlength="50" required="" id="id_name">
             
@@ -95,7 +95,7 @@
     <div>
         
         
-            <label class="required" for="id_dob">Dob:</label>
+            <label class="required" for="id_dob">Ngày Sinh:</label>
             
                 <input type="text" name="dob" value={{duser.doctor.dob|date:'Y-m-d'}} class="vDateField" size="10" required="" id="id_dob">
   </div>
@@ -108,7 +108,7 @@
     <div>
         
         
-            <label for="id_img">Img:</label>
+            <label for="id_img">Ảnh đại diện:</label>
             
                 <input type="file" name="img" accept="image/*" id="id_img">
             
@@ -124,7 +124,7 @@
     <div>
         
         
-            <label class="required" for="id_address">Address:</label>
+            <label class="required" for="id_address">Địa chỉ:</label>
             
                 <input type="text" name="address" value={{duser.doctor.address}} class="vTextField" maxlength="100" required="" id="id_address">
             
@@ -140,7 +140,7 @@
     <div>
         
         
-            <label class="required" for="id_mobile_no">Mobile no:</label>
+            <label class="required" for="id_mobile_no">Số điện thoại:</label>
             
                 <input type="text" name="mobile_no" value={{duser.doctor.mobile_no}} class="vTextField" maxlength="15" required="" id="id_mobile_no">
             
@@ -156,7 +156,7 @@
     <div>
         
         
-            <label class="required" for="id_gender">Gender:</label>
+            <label class="required" for="id_gender">Giới tính:</label>
             
                 <input type="text" name="gender" value={{duser.doctor.gender}} class="vTextField" maxlength="10" required="" id="id_gender">
             
@@ -172,7 +172,7 @@
     <div>
         
         
-            <label class="required" for="id_registration_no">Registration no:</label>
+            <label class="required" for="id_registration_no">Số đăng ký:</label>
             
                 <input type="text" name="registration_no" value={{duser.doctor.registration_no}} class="vTextField" maxlength="20" required="" id="id_registration_no">
             

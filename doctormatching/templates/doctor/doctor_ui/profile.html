@@ -15,7 +15,7 @@
 
 <br>
 <div class="container mt-3 mb-3">
-<center><h2>Doctor Profile</h2>
+<center><h2>Hồ sơ bác sĩ</h2>
 </center><br>
 
 
@@ -27,10 +27,10 @@
             <div class="card" style="width:350px">
                 <img class="card-img-top" src="{% static 'homepage/doctor.png' %}" alt="Card image" style="width:100%;">
                 <div class="card-body">
-                  <h4 class="card-title">Doctor name : {{user.doctor.name}}</h4>
-                  <p class="card-text">Doctor ID - {{user.doctor.user_id}}</p>
-                  <p class="card-text">Doctor email - {{user.email}}</p>
-                  <a href="{% url 'dviewprofile' user.username %}" class="btn btn-primary">View Profile</a>
+                  <h4 class="card-title">Tên bác sĩ : {{user.doctor.name}}</h4>
+                  <p class="card-text">Id bác sĩ - {{user.doctor.user_id}}</p>
+                  <p class="card-text">Email bác sĩ - {{user.email}}</p>
+                  <a href="{% url 'dviewprofile' user.username %}" class="btn btn-primary">Xem hồ sơ</a>
                 </div>
               </div>
 
@@ -40,12 +40,12 @@
         <div class="col" >
              
             <div class="row">
-             <a class="btn btn-outline-info btn-block" href="{% url 'dconsultation_history' %}">view consulation history</a><br>
+             <a class="btn btn-outline-info btn-block" href="{% url 'dconsultation_history' %}">Xem lịch sử tư vấn</a><br>
              </div>
 
 
                 <div class="row">
-                    <button class="btn btn-outline-info btn-block" data-toggle="modal" data-target="#myModal-feedback">Give feedbacks </button><br>
+                    <button class="btn btn-outline-info btn-block" data-toggle="modal" data-target="#myModal-feedback">Phản hồi</button><br>
                     </div>
                    
     
@@ -56,7 +56,7 @@
           
             <!-- Modal Header -->
             <div class="modal-header">
-              <h4 class="modal-title">Feedbacks</h4>
+              <h4 class="modal-title">Phản hồi</h4>
               <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             
@@ -64,7 +64,7 @@
             <div class="modal-body">
                 <form action="post_feedback" method="POST">   {% csrf_token %}
                   <div class="form-group">
-                    <label for="comment">Give feeback:</label>
+                    <label for="comment">Phản hồi:</label>
                     <textarea class="form-control" rows="5" id="feedback" name="feedback"></textarea>
                   </div>
                   

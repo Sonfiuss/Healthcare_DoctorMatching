@@ -95,39 +95,39 @@ def pviewprofile(request, patientusername):
 
 def checkdisease(request):
 
-  diseaselist=['Fungal infection','Allergy','GERD','Chronic cholestasis','Drug Reaction','Peptic ulcer diseae','AIDS','Diabetes ',
-  'Gastroenteritis','Bronchial Asthma','Hypertension ','Migraine','Cervical spondylosis','Paralysis (brain hemorrhage)',
-  'Jaundice','Malaria','Chicken pox','Dengue','Typhoid','hepatitis A', 'Hepatitis B', 'Hepatitis C', 'Hepatitis D',
-  'Hepatitis E', 'Alcoholic hepatitis','Tuberculosis', 'Common Cold', 'Pneumonia', 'Dimorphic hemmorhoids(piles)',
-  'Heart attack', 'Varicose veins','Hypothyroidism', 'Hyperthyroidism', 'Hypoglycemia', 'Osteoarthristis',
-  'Arthritis', '(vertigo) Paroymsal  Positional Vertigo','Acne', 'Urinary tract infection', 'Psoriasis', 'Impetigo']
+  diseaselist=['Nhiễm nấm','Dị ứng',' Trào ngược dạ dày thực quản ','Ứ mật mãn tính','Phản ứng thuốc','Loét dạ dày tá tràng','AIDS',
+               'Tiểu đường ', 'Viêm dạ dày ruột','Hen phế quản','Tăng huyết áp ','Chứng đau nửa đầu','Đốt sống cổ','Bại liệt (xuất huyết não)', 
+               'Viêm gan','Sốt rét','Thủy đậu','Sốt xuất huyết','Thương hàn','Viêm gan A', 'Viêm gan B', 'Viêm gan C', 'Viêm gan D', 'Viêm gan E', 
+               'Viêm gan do rượu','Bệnh lao', 'Cảm lạnh thông thường', 'Viêm phổi', 'Bệnh trĩ lưỡng hình', 'Đau tim', 'Giãn tĩnh mạch','Suy giáp',
+               'Cường giáp', 'Hạ đường huyết', 'Bệnh thoái hóa khớp', 'Viêm khớp', '(chóng mặt) Chóng mặt Lành tính do Tư thế','Mụn trứng cá', 
+               'Nhiễm trùng đường tiết niệu', 'Vảy nến', 'Chốc lở']
 
 
-  symptomslist=['itching','skin_rash','nodal_skin_eruptions','continuous_sneezing','shivering','chills','joint_pain',
-  'stomach_pain','acidity','ulcers_on_tongue','muscle_wasting','vomiting','burning_micturition','spotting_ urination',
-  'fatigue','weight_gain','anxiety','cold_hands_and_feets','mood_swings','weight_loss','restlessness','lethargy',
-  'patches_in_throat','irregular_sugar_level','cough','high_fever','sunken_eyes','breathlessness','sweating',
-  'dehydration','indigestion','headache','yellowish_skin','dark_urine','nausea','loss_of_appetite','pain_behind_the_eyes',
-  'back_pain','constipation','abdominal_pain','diarrhoea','mild_fever','yellow_urine',
-  'yellowing_of_eyes','acute_liver_failure','fluid_overload','swelling_of_stomach',
-  'swelled_lymph_nodes','malaise','blurred_and_distorted_vision','phlegm','throat_irritation',
-  'redness_of_eyes','sinus_pressure','runny_nose','congestion','chest_pain','weakness_in_limbs',
-  'fast_heart_rate','pain_during_bowel_movements','pain_in_anal_region','bloody_stool',
-  'irritation_in_anus','neck_pain','dizziness','cramps','bruising','obesity','swollen_legs',
-  'swollen_blood_vessels','puffy_face_and_eyes','enlarged_thyroid','brittle_nails',
-  'swollen_extremeties','excessive_hunger','extra_marital_contacts','drying_and_tingling_lips',
-  'slurred_speech','knee_pain','hip_joint_pain','muscle_weakness','stiff_neck','swelling_joints',
-  'movement_stiffness','spinning_movements','loss_of_balance','unsteadiness',
-  'weakness_of_one_body_side','loss_of_smell','bladder_discomfort','foul_smell_of urine',
-  'continuous_feel_of_urine','passage_of_gases','internal_itching','toxic_look_(typhos)',
-  'depression','irritability','muscle_pain','altered_sensorium','red_spots_over_body','belly_pain',
-  'abnormal_menstruation','dischromic _patches','watering_from_eyes','increased_appetite','polyuria','family_history','mucoid_sputum',
-  'rusty_sputum','lack_of_concentration','visual_disturbances','receiving_blood_transfusion',
-  'receiving_unsterile_injections','coma','stomach_bleeding','distention_of_abdomen',
-  'history_of_alcohol_consumption','fluid_overload','blood_in_sputum','prominent_veins_on_calf',
-  'palpitations','painful_walking','pus_filled_pimples','blackheads','scurring','skin_peeling',
-  'silver_like_dusting','small_dents_in_nails','inflammatory_nails','blister','red_sore_around_nose',
-  'yellow_crust_ooze']
+  symptomslist=['ngứa','phát ban da','phát ban nốt trên da','hắt hơi liên tục','run rẩy','ớn lạnh','đau khớp',
+   'đau dạ dày','có tính axit','loét trên lưỡi','gầy mòn cơ bắp','nôn mửa','đi tiểu nóng rát','đi tiểu ra máu',
+   'mệt mỏi','tăng cân','lo lắng','tay chân lạnh','tâm trạng thất thường','giảm cân','bồn chồn','thờ ơ',
+   'cổ họng','mức đường không đều','ho','sốt cao','mắt trũng sâu','khó thở','đổ mồ hôi',
+   'mất nước','khó tiêu','nhức đầu','da hơi vàng','nước tiểu sẫm màu','buồn nôn','chán ăn','đau sau mắt',
+   'đau lưng','táo bón','đau bụng','tiêu chảy','sốt nhẹ','nước tiểu vàng',
+   'vàng mắt', 'suy gan cấp tính', 'quá tải chất lỏng', 'sưng bụng',
+   'sưng hạch bạch huyết','khó chịu','mắt mờ và méo mó','đờm','ngứa cổ họng',
+   'đỏ mắt','áp lực xoang','chảy nước mũi','nghẹt mũi','đau ngực','yếu tay chân',
+   'nhịp tim nhanh','đau khi đi tiêu','đau vùng hậu môn','phân có máu',
+   'khó chịu ở hậu môn','đau cổ','chóng mặt','chuột rút','bầm tím','béo phì','sưng chân',
+   'mạch máu sưng lên','mặt và mắt sưng húp','tuyến giáp to','móng tay giòn',
+   'sưng lên cực độ','đói quá mức','quan hệ vợ chồng nhiều hơn','môi khô và ngứa ran',
+   'nói lắp','đau đầu gối','đau khớp háng','yếu cơ','cứng cổ','sưng khớp',
+   'cứng cử động','chuyển động xoay tròn','mất thăng bằng','không vững',
+   'yếu một bên cơ thể','mất khứu giác','khó chịu ở bàng quang','nước tiểu có mùi',
+   'cảm giác đi tiểu liên tục','khí thải ra ngoài','ngứa bên trong','nhìn có độc (typhos)',
+   'trầm cảm','cáu kỉnh','đau cơ','cảm giác thay đổi','đốm đỏ trên cơ thể','đau bụng',
+   'kinh nguyệt bất thường','mảng đổi màu','chảy nước mắt','thèm ăn hơn','đa niệu','tiền sử gia đình','đờm nhầy',
+   'đờm gỉ','thiếu tập trung','rối loạn thị giác','được truyền máu',
+   'tiêm thuốc không vô trùng','hôn mê','chảy máu dạ dày','bụng phình to',
+   'tiền sử uống rượu', 'quá tải chất lỏng', 'máu trong đờm', 'tĩnh mạch nổi rõ trên bắp chân',
+   'đánh trống ngực','đi lại đau đớn','mụn nhọt đầy mủ','mụn đầu đen','sẹo lõm','lột da',
+   'bạc như bụi','vết lõm nhỏ trên móng tay','móng tay bị viêm','mụn nước','mẩn đỏ quanh mũi',
+   'lớp vỏ màu vàng chảy ra']
 
   alphabaticsymptomslist = sorted(symptomslist)
 
@@ -183,12 +183,12 @@ def checkdisease(request):
       
 
         predicted = model.predict(inputtest)
-        print("predicted disease is : ")
+        print("bệnh được dự đoán là : ")
         print(predicted)
 
         y_pred_2 = model.predict_proba(inputtest)
         confidencescore=y_pred_2.max() * 100
-        print(" confidence score of : = {0} ".format(confidencescore))
+        print(" độ tin cậy : = {0} ".format(confidencescore))
 
         confidencescore = format(confidencescore, '.0f')
         predicted_disease = predicted[0]
@@ -201,58 +201,141 @@ def checkdisease(request):
         #                             "Allergist/Immunologist","Urologist","Dermatologist","Gastroenterologist"]
         
 
-        Rheumatologist = [  'Osteoarthristis','Arthritis']
+        Rheumatologist = [ 'Viêm xương khớp','Viêm khớp']
        
-        Cardiologist = [ 'Heart attack','Bronchial Asthma','Hypertension ']
+        Cardiologist = [ 'Đau tim','Hen phế quản','Tăng huyết áp ']
        
-        ENT_specialist = ['(vertigo) Paroymsal  Positional Vertigo','Hypothyroidism' ]
+        ENT_specialist = ['(chóng mặt) Chóng mặt Lành tính do Tư thế','Suy giáp' ]
 
         Orthopedist = []
 
-        Neurologist = ['Varicose veins','Paralysis (brain hemorrhage)','Migraine','Cervical spondylosis']
+        Neurologist = ['Giãn tĩnh mạch','Bại liệt (xuất huyết não)','Chứng đau nửa đầu','Thoái hóa đốt sống cổ']
 
-        Allergist_Immunologist = ['Allergy','Pneumonia',
-        'AIDS','Common Cold','Tuberculosis','Malaria','Dengue','Typhoid']
+        Allergist_Immunologist = ['Dị ứng','Viêm phổi',
+         'AIDS','Cảm lạnh thông thường','Lao','Sốt rét','Sốt xuất huyết','Thương hàn']
 
-        Urologist = [ 'Urinary tract infection',
-         'Dimorphic hemmorhoids(piles)']
+        Urologist = [ 'Nhiễm trùng đường tiết niệu',
+          'Trĩ lưỡng hình']
 
-        Dermatologist = [  'Acne','Chicken pox','Fungal infection','Psoriasis','Impetigo']
+        Dermatologist = [  'Mụn trứng cá','Thủy đậu','Nhiễm nấm','Bệnh vẩy nến','Chốc lở']
 
-        Gastroenterologist = ['Peptic ulcer diseae', 'GERD','Chronic cholestasis','Drug Reaction','Gastroenteritis','Hepatitis E',
-        'Alcoholic hepatitis','Jaundice','hepatitis A',
-         'Hepatitis B', 'Hepatitis C', 'Hepatitis D','Diabetes ','Hypoglycemia']
-         
+        Gastroenterologist = ['Loét dạ dày tá tràng', 'GERD', 'Ứ mật mãn tính', 'Phản ứng thuốc', 'Viêm dạ dày ruột', 'Viêm gan E',
+         'Viêm gan do rượu','Vàng da','Viêm gan A',
+          'Viêm gan B', 'Viêm gan C', 'Viêm gan D','Tiểu đường','Hạ đường huyết']
+        print("=================")
+        print(predicted_disease+"\n================")
+        if(predicted_disease == "Rheumatologist"):
+               predicted_disease = "Thấp khớp"
+        if(predicted_disease == "Fungal infection"):
+               predicted_disease = "Nhiễm nấm"
+        if(predicted_disease == "Allergy"):
+               predicted_disease = "Dị ứng"
+        if(predicted_disease == "GERD"):
+               predicted_disease = "Trào ngược dạ dày thực quản"
+        if(predicted_disease == "Chronic cholestasis"):
+               predicted_disease = "Ứ mật mãn tính"
+        if(predicted_disease == "Drug Reaction"):
+               predicted_disease = "Phản ứng thuốc"
+        if(predicted_disease == "Diabetes"):
+               predicted_disease = "Bệnh tiểu đường"
+        if(predicted_disease == "Gastroenteritis"):
+               predicted_disease = "Viêm dạ dày ruột"
+        if(predicted_disease == "Bronchial Asthma"):
+               predicted_disease = "Hen phế quản"
+        if(predicted_disease == "Hypertension"):
+               predicted_disease = "Tăng huyết áp"
+               
+        if(predicted_disease == "Cervical spondylosis"):
+               predicted_disease = "Thoái hóa đốt sống cổ"
+        if(predicted_disease == "Paralysis (brain hemorrhage)"):
+               predicted_disease = "Tê liệt (xuất huyết não)"
+        if(predicted_disease == "Jaundice"):
+               predicted_disease = "Vàng da"
+        if(predicted_disease == "Malaria"):
+               predicted_disease = "Bệnh sốt rét"
+        if(predicted_disease == "Dengue"):
+               predicted_disease = "Thủy đậu"
+        if(predicted_disease == "Typhoid"):
+               predicted_disease = "Sốt xuất huyết"
+        if(predicted_disease == "hepatitis A"):
+               predicted_disease = "Viêm gan A"
+               
+        if(predicted_disease == "hepatitis B"):
+               predicted_disease = "Viêm gan B"
+        if(predicted_disease == "hepatitis C"):
+               predicted_disease = "Viêm gan C"
+        if(predicted_disease == "hepatitis D"):
+               predicted_disease = "Viêm gan D"                   
+        if(predicted_disease == "hepatitis E"):
+               predicted_disease = "Viêm gan E"
+        if(predicted_disease == "Alcoholic hepatitis"):
+               predicted_disease = "Viêm gan do rượu"
+        if(predicted_disease == "Tuberculosis"):
+               predicted_disease = "tăng huyết áp"
+        if(predicted_disease == "Common Cold"):
+               predicted_disease = "Cảm lạnh thông thường"               
+        if(predicted_disease == "Pneumonia"):
+               predicted_disease = "Viêm phổi"
+        if(predicted_disease == "Dimorphic hemmorhoids(piles)"):
+               predicted_disease = "Trĩ lưỡng tính"
+        if(predicted_disease == "Heart attack"):
+               predicted_disease = "Đau tim"
+        if(predicted_disease == "Varicose veins"):
+               predicted_disease = "Suy tĩnh mạch"
+        if(predicted_disease == "Hypothyroidism"):
+               predicted_disease = "Suy giáp"
+        if(predicted_disease == "Hyperthyroidism"):
+               predicted_disease = "Cường giáp"
+        if(predicted_disease == "Hypoglycemia"):
+               predicted_disease = "Hạ đường huyết"
+        if(predicted_disease == "Osteoarthristis"):
+               predicted_disease = "Thoái hóa khớp"
+        if(predicted_disease == "Arthritis"):
+               predicted_disease = "Viêm khớp"
+        if(predicted_disease == "(vertigo) Paroymsal  Positional Vertigo"):
+               predicted_disease = "Chóng mặt Lành tính do Tư thế"
+        if(predicted_disease == "Acne"):
+               predicted_disease = "Mụn"
+        if(predicted_disease == "Urinary tract infection"):
+               predicted_disease = "Nhiễm trùng đường tiết niệu"
+        if(predicted_disease == "Psoriasis"):
+               predicted_disease = "Bệnh vẩy nến"
+        if(predicted_disease == "Impetigo"):
+               predicted_disease = "Chốc lở"
+                
+               
+               
+                                            
         if predicted_disease in Rheumatologist :
-           consultdoctor = "Rheumatologist"
+           consultdoctor = "Thấp khớp"
            
         if predicted_disease in Cardiologist :
-           consultdoctor = "Cardiologist"
+           consultdoctor = "Tim mạch"
            
 
         elif predicted_disease in ENT_specialist :
-           consultdoctor = "ENT specialist"
+           consultdoctor = "Chuyên khoa tai mũi họng"
      
         elif predicted_disease in Orthopedist :
-           consultdoctor = "Orthopedist"
+           consultdoctor = "Chỉnh hình"
      
         elif predicted_disease in Neurologist :
-           consultdoctor = "Neurologist"
+           consultdoctor = "Thần kinh"
      
         elif predicted_disease in Allergist_Immunologist :
-           consultdoctor = "Allergist/Immunologist"
+           consultdoctor = "Dị ứng/miễn dịch học"
      
         elif predicted_disease in Urologist :
-           consultdoctor = "Urologist"
+           consultdoctor = "Tiết niệu"
      
         elif predicted_disease in Dermatologist :
-           consultdoctor = "Dermatologist"
+           consultdoctor = "Da liễu"
      
         elif predicted_disease in Gastroenterologist :
-           consultdoctor = "Gastroenterologist"
+           consultdoctor = "Chuyên khoa tiêu hóa"
      
         else :
-           consultdoctor = "other"
+           consultdoctor = "Khác"
 
 
         request.session['doctortype'] = consultdoctor 
@@ -275,7 +358,7 @@ def checkdisease(request):
 
         request.session['diseaseinfo_id'] = diseaseinfo_new.id
 
-        print("disease record saved sucessfully.............................")
+        print("lưu bệnh án thành công............................")
 
         return JsonResponse({'predicteddisease': predicted_disease ,'confidencescore':confidencescore , "consultdoctor": consultdoctor})
    
