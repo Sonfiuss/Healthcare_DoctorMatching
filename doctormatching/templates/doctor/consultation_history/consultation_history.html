@@ -14,67 +14,60 @@
 {% block body %}
 
 
-<br><center><h2> Consultion History </h2>
+<br><center><h2> Lịch sử tư vấn</h2>
 </center>
 <div class="container  mt-5 mb-3">
 <br>
+  <table class="table table-hover table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>Tên bệnh nhân</th>
+        <th>Email bệnh nhân</th>
+        <th>Xem hồ sơ bệnh nhân</th>
+        <th>Tên bệnh dự đoán</th>
+        <th>Ngày tư vấn</th>
+        <th>Tình trạng tư vấn</th>
+        <th>tiếp tục tư vấn</th>
+      </tr>
+    </thead>
 
-
-
-
-            <table class="table table-hover table-bordered">
-              <thead class="thead-dark">
-                <tr>
-                  <th>Patient name</th>
-                  <th>Patient Email</th>
-                  <th>View Patient's profile</th>
-                  <th>Predicted Disease Name</th>
-                  <th>Consultation Date</th>
-                  <th>Consultation Status</th>
-                  <th>Resume Consultation</th>
-                </tr>
-              </thead>
-
-              <tbody>
-               
-               {% for i in consultation %}
-               
-               
-                <tr>
-                  <td>{{i.patient.name}}</td>
-                  <td>{{i.patient.user.email}}</td>
-                  <td style="width: 200px;">
-                  
-                    <form action="{% url 'pviewprofile' i.patient.user.username %}" method="GET">
-                      {% csrf_token %} 
-                       <button type="submit" class="btn btn-primary">view profile</button>  
-                    </form>
-
-                  </td>
-
-                  <td>{{i.diseaseinfo.diseasename}}</td>
-                  <td>{{i.consultation_date}}</td>
-                  <td>{{i.status}}</td>
-
-                  <td>
-                    
-                      <form action="{% url 'consultationview' i.id %}" method="GET">
-                          {% csrf_token %} 
-                           <button type="submit" class="btn btn-primary"> Consult</button>  
-                        </form>
-    
-                  </td>
-                </tr>
-
-
-                {% endfor %}
-
-              
-              </tbody>
-            </table>
+    <tbody>
+      
+      {% for i in consultation %}
+      
+      
+      <tr>
+        <td>{{i.patient.name}}</td>
+        <td>{{i.patient.user.email}}</td>
+        <td style="width: 200px;">
         
+          <form action="{% url 'pviewprofile' i.patient.user.username %}" method="GET">
+            {% csrf_token %} 
+              <button type="submit" class="btn btn-primary">Xem hồ sơ</button>  
+          </form>
+
+        </td>
+
+        <td>{{i.diseaseinfo.diseasename}}</td>
+        <td>{{i.consultation_date}}</td>
+        <td>{{i.status}}</td>
+
+        <td>
+          
+            <form action="{% url 'consultationview' i.id %}" method="GET">
+                {% csrf_token %} 
+                  <button type="submit" class="btn btn-primary"> Tư vấn</button>  
+              </form>
+
+        </td>
+      </tr>
 
 
+      {% endfor %}
+
+
+    </tbody>
+  </table>
 </div>
   
 {% endblock %}
