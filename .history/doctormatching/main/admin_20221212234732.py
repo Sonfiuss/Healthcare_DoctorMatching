@@ -1,7 +1,4 @@
 from django.contrib import admin
-from .models import patient , doctor , diseaseinfo , consultation,rating_review
-from models import patient, doctor, diseaseinfo, consultation, rating_review
-
 
 # Register your models here.
 admin.site.register(patient)
