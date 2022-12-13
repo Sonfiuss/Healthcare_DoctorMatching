@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from main_app.models import consultation
+from main.models import consultation
 
 # Create your models here.
 
