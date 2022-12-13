@@ -1,4 +1,3 @@
-from datetime import date
 from django.shortcuts import render, redirect
 import joblib as jb
 from django.http import HttpResponse
@@ -212,68 +211,121 @@ def dconsultation_history(request):
       return render(request,'doctor/consultation_history/consultation_history.html',{"consultation":consultationnew})
 
 def  consult_a_doctor(request):
+
+
     if request.method == 'GET':
+
+        
         doctortype = request.session['doctortype']
         print(doctortype)
         dobj = doctor.objects.all()
         #dobj = doctor.objects.filter(specialization=doctortype)
+
+
         return render(request,'patient/consult_a_doctor/consult_a_doctor.html',{"dobj":dobj})
 
+   
+
+
 def  make_consultation(request, doctorusername):
+
     if request.method == 'POST':
+       
+
         patientusername = request.session['patientusername']
         puser = User.objects.get(username=patientusername)
         patient_obj = puser.patient
-
+        
+        
         #doctorusername = request.session['doctorusername']
         duser = User.objects.get(username=doctorusername)
         doctor_obj = duser.doctor
         request.session['doctorusername'] = doctorusername
+
+
         diseaseinfo_id = request.session['diseaseinfo_id']
         diseaseinfo_obj = diseaseinfo.objects.get(id=diseaseinfo_id)
+
         consultation_date = date.today()
-        status = "active" 
+        status = "active"
+        
         consultation_new = consultation( patient=patient_obj, doctor=doctor_obj, diseaseinfo=diseaseinfo_obj, consultation_date=consultation_date,status=status)
         consultation_new.save()
+
         request.session['consultation_id'] = consultation_new.id
+
         print("consultation record is saved sucessfully.............................")
+
+         
         return redirect('consultationview',consultation_new.id)
 
+
+
 def  consultationview(request,consultation_id):
+   
     if request.method == 'GET':
+
+   
       request.session['consultation_id'] = consultation_id
       consultation_obj = consultation.objects.get(id=consultation_id)
+
       return render(request,'consultation/consultation.html', {"consultation":consultation_obj })
+
    #  if request.method == 'POST':
    #    return render(request,'consultation/consultation.html' )
 
+
+
+
+
 def rate_review(request,consultation_id):
-   if request.method == "POST":   
+   if request.method == "POST":
+         
          consultation_obj = consultation.objects.get(id=consultation_id)
          patient = consultation_obj.patient
          doctor1 = consultation_obj.doctor
          rating = request.POST.get('rating')
          review = request.POST.get('review')
+
          rating_obj = rating_review(patient=patient,doctor=doctor1,rating=rating,review=review)
          rating_obj.save()
+
          rate = int(rating_obj.rating_is)
          doctor.objects.filter(pk=doctor1).update(rating=rate)
+         
+
          return redirect('consultationview',consultation_id)
 
+
+
+
+
 def close_consultation(request,consultation_id):
-   if request.method == "POST":     
-         consultation.objects.filter(pk=consultation_id).update(status="closed")    
+   if request.method == "POST":
+         
+         consultation.objects.filter(pk=consultation_id).update(status="closed")
+         
          return redirect('home')
 
+
+
+
+
+
 #-----------------------------chatting system ---------------------------------------------------
+
 
 def post(request):
     if request.method == "POST":
         msg = request.POST.get('msgbox', None)
+
         consultation_id = request.session['consultation_id'] 
         consultation_obj = consultation.objects.get(id=consultation_id)
+
         c = Chat(consultation_id=consultation_obj,sender=request.user, message=msg)
+
         #msg = c.user.username+": "+msg
+
         if msg != '':            
             c.save()
             print("msg saved"+ msg )
@@ -281,11 +333,16 @@ def post(request):
     else:
         return HttpResponse('Request must be POST.')
 
+
+
 def chat_messages(request):
    if request.method == "GET":
+
          consultation_id = request.session['consultation_id'] 
+
          c = Chat.objects.filter(consultation_id=consultation_id)
          return render(request, 'consultation/chat_body.html', {'chat': c})
+
 
 #-----------------------------chatting system ---------------------------------------------------
 

@@ -1,4 +1,3 @@
-from datetime import date
 from django.shortcuts import render, redirect
 import joblib as jb
 from django.http import HttpResponse
@@ -212,27 +211,44 @@ def dconsultation_history(request):
       return render(request,'doctor/consultation_history/consultation_history.html',{"consultation":consultationnew})
 
 def  consult_a_doctor(request):
+
+
     if request.method == 'GET':
+
+        
         doctortype = request.session['doctortype']
         print(doctortype)
         dobj = doctor.objects.all()
         #dobj = doctor.objects.filter(specialization=doctortype)
+
+
         return render(request,'patient/consult_a_doctor/consult_a_doctor.html',{"dobj":dobj})
 
+   
+
+
 def  make_consultation(request, doctorusername):
+
     if request.method == 'POST':
+       
+
         patientusername = request.session['patientusername']
         puser = User.objects.get(username=patientusername)
         patient_obj = puser.patient
-
+        
+        
         #doctorusername = request.session['doctorusername']
         duser = User.objects.get(username=doctorusername)
         doctor_obj = duser.doctor
         request.session['doctorusername'] = doctorusername
+
+
         diseaseinfo_id = request.session['diseaseinfo_id']
         diseaseinfo_obj = diseaseinfo.objects.get(id=diseaseinfo_id)
+
         consultation_date = date.today()
-        status = "active" 
+        status = "active"
+        
         consultation_new = consultation( patient=patient_obj, doctor=doctor_obj, diseaseinfo=diseaseinfo_obj, consultation_date=consultation_date,status=status)
         consultation_new.save()
         request.session['consultation_id'] = consultation_new.id
