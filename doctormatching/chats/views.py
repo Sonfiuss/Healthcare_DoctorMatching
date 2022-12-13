@@ -1,8 +1,8 @@
 from django.shortcuts import render , redirect
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from .models import Chat , Feedback
-from main_app.views import patient_ui, doctor_ui
-from main_app.models import patient , doctor
+from main.views import patient_ui, doctor_ui
+from main.models import patient , doctor
 
 # Create your views here.
 
